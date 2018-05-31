@@ -1,3 +1,6 @@
+import Data.List (sortBy)
+import Data.Ord (comparing)
+
 --HS.B1(3)
 myMapSquare = map (^2)
 
@@ -18,9 +21,7 @@ grep3 _ [] = []
 
 --SCH.B4(4)
 ordered :: (a -> a -> Bool) -> [a] -> Bool
-ordered op xs = and $ zipWith op xs (tail xs)
+ordered op xs = and . zipWith op xs $ tail xs
 
---SCH.B5(6)
---import Data.List (sortBy)
---import Data.Ord(comparing)
---mySort op = sortBy (comparing op)
+
+mySort op = sortBy (comparing op)
