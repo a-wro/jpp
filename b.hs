@@ -24,4 +24,10 @@ ordered :: (a -> a -> Bool) -> [a] -> Bool
 ordered op xs = and . zipWith op xs $ tail xs
 
 
-mySort op = sortBy (comparing op)
+--SCH.B5(6)
+mySort :: (Ord a) => (a -> a -> Bool) -> [a] -> [a]  
+mySort _ [] = []  
+mySort op (x:xs) =   
+    let left = mySort op [ a | a <- xs, a `op` x ]  
+        right = mySort op [ a | a <- xs, not $ a `op` x ]  
+    in  left ++ [x] ++ right  
