@@ -2,6 +2,7 @@ reduce :: (a -> b -> b) -> b -> [a] -> b
 
 reduce _ x []    = x
 reduce f x (h:t) = f h (reduce f x t)
+--reduce to po prostu foldr
 
 --HS.C1(6)
 maxNat = reduce max 0 
