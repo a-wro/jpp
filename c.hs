@@ -16,3 +16,7 @@ rev = reduce (\x acc -> acc ++ [x]) []
 maxNum lst = case maxNat lst of
     0 -> Nothing
     x -> Just x
+    
+maxNum2 [] = Nothing
+maxNum2 xs = Just (reduce max 0 xs)
+
